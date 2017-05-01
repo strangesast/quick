@@ -15,12 +15,20 @@ body {
   flex-direction: column;
 }
 
+@header-height: 80px;
 body > .header {
-  padding: 4px;
-  height: 80px;
-  position: relative;
+  padding: 8px 4px;
+  box-sizing: border-box;
+  height: @header-height;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   color: @deep-blue;
+  border-bottom: @border-width solid @border-color;
+  background-color: white;
+  z-index: 2;
 
   & > img {
     max-width: 100%;
@@ -28,14 +36,14 @@ body > .header {
   }
 
   & > .body {
-    padding: 8px;
+    margin: 0 8px;
     color: inherit;
     * {
       display: block;
       color: inherit;
     }
     .title {
-      font-size: 2.75em;
+      font-size: 2.70em;
       margin-left: 10px;
     }
   }
@@ -45,13 +53,14 @@ body > .body {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  margin-top: @header-height;
   @media(max-width: 478px) {
     flex-wrap: wrap;
     flex-direction: row;
   }
   position: relative;
-  border-top: @border-width solid @border-color;
   color: @light-blue;
+  text-shadow: 1px 1px 0px @border-color;
   .box {
     position: relative;
     font-style: italic;
@@ -61,6 +70,7 @@ body > .body {
     justify-content: center;
     flex-basis: calc(160px - @border-width);
     flex-grow: 1;
+    min-height: 140px;
     @media(max-width: 478px) and (min-width: 318px) {
       &:nth-child(odd) {
         border-right: @border-width solid @border-color;
@@ -74,24 +84,19 @@ body > .body {
     .subtitle {
       font-size: 0.9em;
     }
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    &.flame {
-      background-image:url(../assets/flame.png);
+    & > svg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      fill: @border-color;
+      transition: fill 0.1s;
+      z-index: -1;
     }
-    &.snowflake {
-      background-image:url(../assets/snowflake.png);
+
+    &:hover > svg {
+      fill: @deep-blue;
     }
-    &.general {
-      background-image:url(../assets/general.png);
-    }
-    &.energy {
-      background-image:url(../assets/energy.png);
-    }
-    &.water {
-      background-image:url(../assets/water.png);
-    }
+
   }
 }
 
