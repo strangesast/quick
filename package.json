@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "./node_modules/.bin/webpack --config webpack.prod.config.js",
     "watch": "./node_modules/.bin/webpack-dev-server --config webpack.config.js",
     "test": "karma start karma.conf.js"
   },
@@ -13,7 +14,9 @@
     "d3": "^4.8.0"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
+    "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
     "html-webpack-plugin": "^2.28.0",
     "jasmine-core": "^2.6.1",
