@@ -53,6 +53,7 @@ body > .body {
   border-top: @border-width solid @border-color;
   color: @light-blue;
   .box {
+    position: relative;
     font-style: italic;
     display: flex;
     flex-direction: column;
@@ -72,6 +73,24 @@ body > .body {
     }
     .subtitle {
       font-size: 0.9em;
+    }
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    &.flame {
+      background-image:url(../assets/flame.png);
+    }
+    &.snowflake {
+      background-image:url(../assets/snowflake.png);
+    }
+    &.general {
+      background-image:url(../assets/general.png);
+    }
+    &.energy {
+      background-image:url(../assets/energy.png);
+    }
+    &.water {
+      background-image:url(../assets/water.png);
     }
   }
 }
